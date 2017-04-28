@@ -7,3 +7,7 @@
 * To compile code: $ python manage.py check
 * Launch development server: $ python manage.py runserver
 * Go to "127.0.0.1:8000" in the url bar to use
+
+
+# To install django, a simple way is:
+conda install -c anaconda django=1.10.5
