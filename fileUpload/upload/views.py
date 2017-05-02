@@ -19,10 +19,10 @@ def upload(request):
 		if form.is_valid():
 			form.save()
 			image = ImageUploadModel.objects.latest('id')
-			imageUrl = settings.BASE_DIR + image.model_pic.url
+			imageUrl = settings.BASE_DIR + image.upload.url
 	
 			height, width = determine_door_size(imageUrl)
-			return render(request, 'home.html', {'imageUrl':image.model_pic.url, 'height':height, 'width': width,})
+			return render(request, 'home.html', {'imageUrl':image.upload.url, 'height':height, 'width': width,})
 	else:
 		form = FileUpload()
 

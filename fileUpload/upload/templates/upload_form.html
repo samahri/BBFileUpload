@@ -3,11 +3,13 @@
 <html>
 <body>
 	<img src="/media/mockimages/topBanner.png" width="100%" />
-	<img src="/media/mockimages/willItFit.png" width="100%"/>
 	<form enctype="multipart/form-data" method="post">
 		{% csrf_token %}
-		{{ form.as_p }}
+		<div style="font-family:sans-serif">
+		{{ form.as_p }} 
 		<input type="submit" value="submit" />
+		</div>
+	<img src="/media/mockimages/willItFit.png" width="100%"/>
 	</form>
 
 </body>
