@@ -22,6 +22,8 @@ from upload import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.upload),
-    #url(r'^uploads$', views.showUplads, name='uploads'),
+    url(r'^$', views.showHomePage),
+    url(r'^insignia$', views.showFridge1),
+    url(r'^upload$', views.upload)
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

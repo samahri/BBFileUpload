@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.conf import settings
 
 import os
@@ -27,6 +27,12 @@ def upload(request):
 		form = FileUpload()
 
 	return render(request, 'upload_form.html', {'form': form})
+
+def showHomePage(request):
+	return render_to_response('index.html')
+
+def showFridge1(request):
+	return render_to_response('fridge1.html')
 
 # def showUplads(request):
 # 	images = ImageUploadModel.objects.all()
