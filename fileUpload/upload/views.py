@@ -12,7 +12,7 @@ from doorMeasure.determineDoorSize import determine_door_size
 
 # froms view function with the Forms class
 
-def upload(request):
+def upload(request, fridgeNumber):
 	if request.method == 'POST':
 		form = FileUpload(request.POST, request.FILES)
 		ImageUploadModel.objects.all().delete()
@@ -21,8 +21,23 @@ def upload(request):
 			image = ImageUploadModel.objects.latest('id')
 			imageUrl = settings.BASE_DIR + image.upload.url
 	
-			height, width = determine_door_size(imageUrl)
-			return render(request, 'home.html', {'imageUrl':image.upload.url, 'height':height, 'width': width,})
+			pathHeight, pathWidth = determine_door_size(imageUrl)
+			
+			if int(fridgeNumber) == 1:
+				fridgeHeight = 169
+				fridgeWidth = 75
+
+			elif int(fridgeNumber) == 2:
+				fridgeHeight = 151.9
+				fridgeWidth = 61
+
+			elif int(fridgeNumber) == 3:
+				fridgeHeight = 167.96
+				fridgeWidth = 76.2
+
+			return render(request, 'results.html', {'imageUrl':image.upload.url, 'pathHeight':pathHeight, 'pathWidth': pathWidth,
+													'fridgeHeight':fridgeHeight, 'fridgeWidth': fridgeWidth, 
+													'fridgeNumber':fridgeNumber})
 	else:
 		form = FileUpload()
 
@@ -31,8 +46,8 @@ def upload(request):
 def showHomePage(request):
 	return render_to_response('index.html')
 
-def showFridge1(request):
-	return render_to_response('fridge1.html')
+def showFridge(request, fridgeNumber):
+	return render_to_response('fridgeDisplay.html', {'fridgeNumber':fridgeNumber})
 
 # def showUplads(request):
 # 	images = ImageUploadModel.objects.all()

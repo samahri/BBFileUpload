@@ -1,20 +1,9 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://www.evolus.vn/Namespace/Pencil" xmlns:html="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Best Buy!</title>
-</head>
-<body>
-	<div class="Page" id="untitled_page_page">
-		<div class="ImageContainer">
-			<img src="/media/mockimages/topBanner.png" width="100%" />
-			<img src="/media/mockimages/sideBanner.png" height="100%" width="25%"/>
+{% extends 'base.html' %}
 
-			<a href="insignia"><img src="/media/mockimages/fridge1.png" height="100%" width="25%"/></a>
-			<img src="/media/mockimages/fridge2.png" height="100%" width="25%"/>
-			<img src="/media/mockimages/fridge3.png" height="100%" width="24%"/>
-		</div>
-	</div>
-</body>
-</html>
+{% block fridgeInfo %}
+	<a href="fridge1"><img src="/media/mockimages/fridge1.png" height="100%" width="25%"/></a>
+	<a href="fridge2"><img src="/media/mockimages/fridge2.png" height="100%" width="25%"/></a>
+	<a href="fridge3"><img src="/media/mockimages/fridge3.png" height="100%" width="25%"/></a>
+{% endblock %}
 
 <!-- height="527" -->

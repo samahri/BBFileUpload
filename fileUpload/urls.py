@@ -23,7 +23,7 @@ from upload import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.showHomePage),
-    url(r'^insignia$', views.showFridge1),
-    url(r'^upload$', views.upload)
+    url(r'^fridge(1|2|3)$', views.showFridge),
+    url(r'^fridge(1|2|3)/upload$', views.upload)
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

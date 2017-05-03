@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+  <img src="/media/mockimages/topBanner.png" width="100%" />
+  <div style="font-family:sans-serif; font-size:35px" >
+	<p>Results: <br>
+    <div id="infoContainer">
+      <p>Door Height is <strong>{{ pathHeight }} cm</strong> and width is <strong>{{ pathWidth }} cm</strong>.</p>
+      <p>Fridge Height is <strong>{{ fridgeHeight }} cm</strong> and width is <strong>{{ fridgeWidth }} cm</strong>.</p>
+      <p>
+       The refrigerator 
+        {% if pathHeight < fridgeHeight and pathWidth < fridgeWidth %}
+          <strong>will fit</strong> through the delivery path.
+        {% else %}
+             <strong>will not fit</strong> through the delivery path.
+        {% endif %}
+      </p>
+    </div>
+    <div id="imageContainer">
+      <img src="{{ imageUrl }}" width="25%"/>	
+   	  <img src="/media/images/step4.png" width="25%" />
+      <img src="/media/mockimages/fridgeCloseUp/{{ fridgeNumber }}.png" width="25%%" />
+   </div>
+ </div>
+</body>
+</html>
