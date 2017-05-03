@@ -1,21 +1,47 @@
 <html>
 <head>
+  <style>
+    th, td, table {
+      font-family: sans-serif;
+      font-size: 30px;
+      padding:20px;
+      border: 1px solid black;
+      border-collapse: collapse;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <img src="/media/mockimages/topBanner.png" width="100%" />
+  <img src="/media/mockimages/topBanner.png"/>
   <div style="font-family:sans-serif; font-size:35px" >
-	<p>Results: <br>
     <div id="infoContainer">
-      <p>Door Height is <strong>{{ pathHeight }} cm</strong> and width is <strong>{{ pathWidth }} cm</strong>.</p>
-      <p>Fridge Height is <strong>{{ fridgeHeight }} cm</strong> and width is <strong>{{ fridgeWidth }} cm</strong>.</p>
-      <p>
-       The refrigerator 
-        {% if pathHeight < fridgeHeight and pathWidth < fridgeWidth %}
-          <strong>will fit</strong> through the delivery path.
-        {% else %}
-             <strong>will not fit</strong> through the delivery path.
-        {% endif %}
-      </p>
+      <table>
+          <tr>
+            <th style="border-top: 0px"></th>
+            <th>Height (cm)</th>
+            <th>Width (cm)</th>
+          </tr>
+          <tr>
+            <td><strong>Delivery Path</strong></td>
+            <td>{{ pathHeight }}</td>
+            <td>{{ pathWidth }}</td>
+          </tr>
+          <tr>
+            <td><strong>Refrigerator</strong></td>
+            <td>{{ fridgeHeight }}</td>
+            <td>{{ fridgeWidth }}</td>
+          </tr>
+          <tr>
+            <td><strong>Result</strong></td>
+            <td colspan="2">
+                The refrigerator
+                {% if pathHeight > fridgeHeight and pathWidth > fridgeWidth %}
+                  <strong>will fit</strong> through the delivery path.
+                {% else %}
+                   <strong>will not fit</strong> through the delivery path.
+                {% endif %}
+            </td>
+      </table>
     </div>
     <div id="imageContainer">
       <img src="{{ imageUrl }}" width="25%"/>	
