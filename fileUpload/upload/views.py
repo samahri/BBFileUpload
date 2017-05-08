@@ -1,3 +1,7 @@
+"""
+Author: Sam Saud Almahri
+Date: April 2017
+"""
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, render_to_response
 from django.conf import settings
@@ -16,6 +20,7 @@ def upload(request, fridgeNumber):
 	if request.method == 'POST':
 		form = FileUpload(request.POST, request.FILES)
 		ImageUploadModel.objects.all().delete()
+		os.system("rm ../../media/images/*")
 		if form.is_valid():
 			form.save()
 			image = ImageUploadModel.objects.latest('id')
