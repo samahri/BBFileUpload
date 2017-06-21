@@ -11,3 +11,9 @@
 ```
 $ conda install -c anaconda django=1.10.5
 ```
+
+# IMPORTANT!
+Do not install OpenCV using pip; instead, use conda
+```
+conda install -c https://conda.binstar.org/menpo opencv
+```
